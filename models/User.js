@@ -2,6 +2,10 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
+  name:{ type: String},
+  organization: {type: String},
+  resource:{type: mongoose.Schema.Types.ObjectId,
+    ref: "Resources"},
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
